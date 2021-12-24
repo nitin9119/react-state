@@ -1,23 +1,23 @@
 import logo from './logo.svg';
+import {useState} from 'react';
 import './App.css';
 
 function App() {
+  let [count,setCount] = useState(0);
+
+  const counterVal=(value)=>{
+    setCount(count+value)
+  }
+  const doubVal=(val)=>{
+    setCount(count*val)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+    <div>
+      <h1>Counter:{count}</h1>
+      <button onClick={()=>counterVal(1)}>Add 1</button>
+      <button onClick={()=>counterVal(-1)}>Substract 1</button>
+      <button onClick={()=>doubVal(2)}>double</button>
     </div>
   );
 }
